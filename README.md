@@ -1,5 +1,4 @@
-# InteractiveComments
-# NotificationsPage
+# InterativeComments
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
 
@@ -26,5 +25,3 @@ Create, Read, Update, and Delete comments and replies
 Upvote and downvote comments
 View the optimal layout for the app depending on the device's screen size
 See hover states for all interactive elements on the page
-Bonus: If you're building a purely front-end project, use localStorage to save the current state in the browser that persists when the browser is refreshed
-Bonus: Build this project as a full-stack application
