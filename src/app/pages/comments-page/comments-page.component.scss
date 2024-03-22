@@ -1,0 +1,24 @@
+.comment{
+    width: 100%;
+    max-width: 750px;
+    border-radius: 5px;
+    background-color: var(--White);
+    padding: 20px;
+    &__counter{
+      margin-right: 20px;
+    }
+    &__title{
+        margin-bottom: 20px;
+        &__name{
+            margin:0 10px;
+            font-weight: var(--bold);
+        }
+        &__date{
+            margin:0 10px;
+            color: var(--Raven);
+        }
+    }
+  &__text{
+    color: var(--Raven);
+  }
+}
