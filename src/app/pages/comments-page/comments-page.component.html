@@ -1,0 +1,16 @@
+@for (comment of comments; track comment.id){
+  <app-comment [comment]="comment"></app-comment>
+  @if(comment.responses.length>0){
+    @for(child of comment.responses; track child.id){
+      <div class="container-child">
+        <app-comment [comment]="child"></app-comment>
+      </div>
+    }
+  }
+}
+
+
+<app-response-box [avatar]="isUserAvatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
+
+
+

@@ -4,6 +4,12 @@
 .space-between {
     justify-content: space-between;
   }
+  .justify-content-center{
+    justify-content: center;
+  }
+  .align-item-center{
+    align-items: center;
+  }
 .d-flex-center{
     display: flex;
     align-items: center;
@@ -25,14 +31,101 @@
 
 //font-size---------------------
 .fs-12 {
-    font-size: 12px;
+    font-size: var(--size-sm);
   }
   .fs-14 {
-    font-size: 14px;
+    font-size: var(--size-xm);
   }
   .fs-16 {
-    font-size: 16px;
+    font-size: var(--size-md);
   }
   .fs-18 {
-    font-size: 18px;
+    font-size: var(--size-xmd);
   }
+  .p-inputnumber-buttons-vertical{
+    width: 50px !important;
+    .p-button{
+      height: 25px !important;
+      background-color: var(--Solitude);
+      border: none;
+
+    }
+    .p-inputnumber-input{
+      border: none;
+      background-color: var(--Solitude);
+      font-weight: var(--bold);
+      color: var(--Rich-Blue);
+    }
+  }
+
+  //icons----------------------
+.reply-btn{
+  background: url("../assets/images/icon-reply.svg") right center no-repeat;
+  width: 11px;
+  background-size: 100%;
+  height: 10px;
+  display: inline-block;
+}
+.edit-btn{
+  background: url("../assets/images/icon-edit.svg") right center no-repeat;
+  width: 11px;
+  background-size: 100%;
+  height: 10px;
+  display: inline-block;
+}
+.delete-btn{
+  background: url("../assets/images/icon-delete.svg") right center no-repeat;
+  width: 11px;
+  background-size: 100%;
+  height: 13px;
+  display: inline-block;
+}
+//button------------
+.btn{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  span{
+    font-weight: var(--bold);
+    margin-left: 4px;
+  }
+  &:hover{
+    opacity: .3;
+  }
+}
+//colors------------
+button{
+  font-family: "Rubik", sans-serif !important;
+  font-weight: var(--bold);
+  cursor: pointer;
+}
+textarea{
+  padding: 10px;
+  box-sizing: border-box;
+  font-family: "Rubik", sans-serif !important;
+  &:focus-visible {
+    outline: var(--Madison) auto 1px;
+  }
+}
+.color-rich-blue{
+  color: var(--Rich-Blue);
+}
+.color-light-pink{
+  color: var(--Froly);
+}
+.btn-blue{
+  border-radius: 5px;
+  width: 90px;
+  line-height: 40px;
+  background-color: var(--Rich-Blue);
+  color: var(--White);
+  border: none;
+  height: 40px;
+}
+.text-area-style{
+  border-radius: 5px;
+  border-color: var(--Solitude);
+  width: calc(100% - 150px);
+  resize: none;
+  height: 80px;
+}

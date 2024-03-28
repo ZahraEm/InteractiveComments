@@ -2,8 +2,9 @@
 @use 'styles/variables';
 @use 'styles/utils';
 
+
 body {
-    background-color: var(--Solitude);
+    background-color: var(--Ghost-White);
     font-family: "Rubik", sans-serif !important;
     font-optical-sizing: auto;
     font-weight: var(--regular) !important;
