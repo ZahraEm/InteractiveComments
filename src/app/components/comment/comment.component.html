@@ -1,0 +1,49 @@
+<div class="comment">
+  <div class="d-flex">
+    <div class="comment__counter">
+      <app-custom-input-number
+        [(value)]="comment.rate"
+        [min]="0"
+        (valueChange)="onValueChange($event)"
+      ></app-custom-input-number>
+    </div>
+    <div>
+      <div class="d-flex comment__title space-between">
+        <div class="d-flex align-item-center">
+          <img
+            [src]="comment.avatar"
+            width="20"
+            height="20"
+            alt="avatar"
+          />
+          <span class="comment__title__name">{{ comment.username }}</span>
+          @if(comment.isUser){
+            <span class="comment__title__tag">you</span>
+          }
+          <span class="comment__title__date">{{comment.date | timeAgo}}</span>
+        </div>
+        <div>
+          @if(comment.isUser){
+            <button class="btn color-rich-blue">
+              <i class="edit-btn"></i>
+              <span>Edit</span>
+            </button>
+            <button class="btn color-light-pink">
+              <i class="delete-btn"></i>
+              <span>Delete</span>
+            </button>
+          }
+          @else{
+            <button class="btn color-rich-blue">
+              <i class="reply-btn"></i>
+              <span>Reply</span>
+            </button>
+          }
+        </div>
+      </div>
+      <div class="comment__text">
+        {{comment.message}}
+      </div>
+    </div>
+  </div>
+</div>

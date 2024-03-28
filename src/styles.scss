@@ -1,12 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'styles/variables';
 @use 'styles/utils';
-@import "primeng/resources/themes/lara-light-blue/theme.css";
-@import "primeng/resources/primeng.css";
 
 
 body {
-    background-color: var(--Solitude);
+    background-color: var(--Ghost-White);
     font-family: "Rubik", sans-serif !important;
     font-optical-sizing: auto;
     font-weight: var(--regular) !important;

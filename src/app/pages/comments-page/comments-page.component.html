@@ -1,26 +1,16 @@
-<div class="container justify-content-center d-flex">
-    <div class="comment">
-        <div class="d-flex">
-            <div class="comment__counter">
-                <p-inputNumber [(ngModel)]="counter" [min]="0" [showButtons]="true" buttonLayout="vertical" spinnerMode="vertical"
-                    inputId="vertical" decrementButtonClass="p-button-secondary" incrementButtonClass="p-button-secondary"
-                    incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus"></p-inputNumber>
-            </div>
-            <div>
-                <div class="d-flex comment__title">
-                    <div class="d-flex align-item-center">
-                        <img src="../../../assets/images/avatars/image-amyrobson.png" width="20" height="20" alt="avatar">
-                        <span class="comment__title__name">amyrobson</span>
-                        <span class="comment__title__date">2 weeks ago</span>
-                    </div>
-                    <div></div>
-                </div>
-                <div class="comment__text">Impressive! Though it seems the drag feature could be improved. But overall it
-                    looks incredible. You've nailed the design and the responsiveness at various breakpoints works really
-                    well.</div>
-            </div>
-        </div>
-    </div>
-</div>
+@for (comment of comments; track comment.id){
+  <app-comment [comment]="comment"></app-comment>
+  @if(comment.responses.length>0){
+    @for(child of comment.responses; track child.id){
+      <div class="container-child">
+        <app-comment [comment]="child"></app-comment>
+      </div>
+    }
+  }
+}
+
+
+<app-response-box [avatar]="isUserAvatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
+
 
 
