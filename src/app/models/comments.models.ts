@@ -8,6 +8,11 @@ export interface Comment {
   responses: Comment[];
   isUser: boolean;
 }
+export interface UserInfo {
+  id: string;
+  username: string;
+  avatar: string;
+}
 export enum responseBoxType {
   SEND = '1',
   UPDATE = '2',
