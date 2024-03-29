@@ -4,6 +4,12 @@
 .space-between {
     justify-content: space-between;
   }
+  .justify-content-center{
+    justify-content: center;
+  }
+  .align-item-center{
+    align-items: center;
+  }
 .d-flex-center{
     display: flex;
     align-items: center;
@@ -25,14 +31,30 @@
 
 //font-size---------------------
 .fs-12 {
-    font-size: 12px;
+    font-size: var(--size-sm);
   }
   .fs-14 {
-    font-size: 14px;
+    font-size: var(--size-xm);
   }
   .fs-16 {
-    font-size: 16px;
+    font-size: var(--size-md);
   }
   .fs-18 {
-    font-size: 18px;
+    font-size: var(--size-xmd);
   }
+  .p-inputnumber-buttons-vertical{
+    width: 50px !important;
+    .p-button{
+      height: 25px !important;
+      background-color: var(--Solitude);
+      border: none;
+
+    }
+    .p-inputnumber-input{
+      border: none;
+      background-color: var(--Solitude);
+      font-weight: var(--bold);
+      color: var(--Rich-Blue);
+
+    }
+  } 
