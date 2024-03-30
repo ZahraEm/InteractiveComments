@@ -40,7 +40,7 @@ export class ResponseBoxComponent implements OnInit {
     switch (this.type) {
       case responseBoxType.SEND:
         const newComment: Comment = {
-          id: this.userInfo.id,
+          id: Math.floor(Math.random()).toString(),
           username: this.userInfo.username,
           avatar: this.userInfo.avatar,
           date: new Date(),

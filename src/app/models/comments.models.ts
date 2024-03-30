@@ -1,5 +1,5 @@
 export interface Comment {
-  id: string;
+  id?: string;
   username: string;
   avatar: string;
   date: Date;
