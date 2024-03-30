@@ -1,5 +1,3 @@
-import { FormsModule } from '@angular/forms';
-import { debounceTime, Subject } from 'rxjs';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -7,6 +5,9 @@ import {
   Input,
   Output,
 } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { debounceTime, Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-custom-input-number',
