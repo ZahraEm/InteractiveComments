@@ -6,7 +6,6 @@ import { Comment, UserInfo } from '../models/comments.models';
   providedIn: 'root',
 })
 export class CommentStateService {
-  // Provide initial values for id, username, and avatar
   initialUserInfo: UserInfo = {
     id: '',
     username: '',
@@ -27,5 +26,12 @@ export class CommentStateService {
   }
   setUserInfo(userInfo: UserInfo) {
     this.userInfo$.next(userInfo);
+  }
+
+  addNewComment(newComment: Comment) {
+    const currentComments = this.comments$.getValue();
+    const updatedComments = [...currentComments, newComment];
+    this.setComments(updatedComments);
+    return updatedComments;
   }
 }

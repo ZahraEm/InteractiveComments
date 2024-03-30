@@ -13,7 +13,7 @@
 
 
 <ng-container *ngIf="userInfo$ | async as userInfo">
-  <app-response-box [avatar]="userInfo.avatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
+  <app-response-box (sendComment)="sendComment($event)" [avatar]="userInfo.avatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
 </ng-container>
 
 

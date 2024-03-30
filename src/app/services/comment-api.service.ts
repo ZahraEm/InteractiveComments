@@ -16,4 +16,8 @@ export class CommentApiService {
   getUserInfo(): Observable<UserInfo> {
     return this.http.get<UserInfo>(`${this.url}/userInfo`);
   }
+
+  addComment(comments: Comment[]): Observable<Comment[]> {
+    return this.http.post<Comment[]>(`${this.url}/comments`, comments);
+  }
 }

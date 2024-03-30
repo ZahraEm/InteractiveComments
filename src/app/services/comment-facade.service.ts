@@ -18,7 +18,6 @@ export class CommentFacadeService {
   }
 
   loadComments() {
-    console.log('CommentFacadeService');
     this.commentApiService.getAllComments().subscribe((comments) => {
       this.commentStateService.setComments(comments);
     });
@@ -31,5 +30,10 @@ export class CommentFacadeService {
     this.commentApiService.getUserInfo().subscribe((info) => {
       this.commentStateService.setUserInfo(info);
     });
+  }
+
+  addNewComment(newComment: Comment) {
+    const commentList = this.commentStateService.addNewComment(newComment);
+    this.commentApiService.addComment(commentList).subscribe();
   }
 }

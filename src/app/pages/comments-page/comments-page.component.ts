@@ -49,4 +49,8 @@ export class CommentsPageComponent implements OnInit {
   onValueChange(value: number) {
     console.log('Value changed to:', value);
   }
+
+  sendComment(comment: Comment) {
+    this.commentFacadeService.addNewComment(comment);
+  }
 }
