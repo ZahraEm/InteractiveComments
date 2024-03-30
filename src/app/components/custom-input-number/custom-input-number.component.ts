@@ -1,6 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Subject } from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 
 @Component({
   selector: 'app-custom-input-number',
@@ -8,6 +14,7 @@ import { debounceTime, Subject } from 'rxjs';
   imports: [FormsModule],
   templateUrl: './custom-input-number.component.html',
   styleUrl: './custom-input-number.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CustomInputNumberComponent {
   @Input() value: number = 0;
