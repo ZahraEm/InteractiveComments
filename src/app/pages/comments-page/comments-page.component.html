@@ -1,16 +1,20 @@
-@for (comment of comments; track comment.id){
-  <app-comment [comment]="comment"></app-comment>
-  @if(comment.responses.length>0){
-    @for(child of comment.responses; track child.id){
-      <div class="container-child">
-        <app-comment [comment]="child"></app-comment>
-      </div>
+<ng-container *ngIf="comments$ | async as comments">
+  @for (comment of comments; track comment.id){
+    <app-comment [comment]="comment"></app-comment>
+    @if(comment.responses.length>0){
+      @for(child of comment.responses; track child.id){
+        <div class="container-child">
+          <app-comment [comment]="child"></app-comment>
+        </div>
+      }
     }
   }
-}
+</ng-container>
 
 
-<app-response-box [avatar]="isUserAvatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
+<ng-container *ngIf="userInfo$ | async as userInfo">
+  <app-response-box (sendComment)="sendComment($event)" [avatar]="userInfo.avatar" [type]="RESPONSE_BOX_TYPE.SEND"></app-response-box>
+</ng-container>
 
 
 

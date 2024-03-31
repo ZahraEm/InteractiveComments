@@ -1,5 +1,5 @@
 export interface Comment {
-  id: string;
+  id?: string;
   username: string;
   avatar: string;
   date: Date;
@@ -7,6 +7,11 @@ export interface Comment {
   rate: number;
   responses: Comment[];
   isUser: boolean;
+}
+export interface UserInfo {
+  id: string;
+  username: string;
+  avatar: string;
 }
 export enum responseBoxType {
   SEND = '1',

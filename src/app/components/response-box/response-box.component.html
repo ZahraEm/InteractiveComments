@@ -1,4 +1,4 @@
-<div class="comment comment--response-box">
+<div class="response-box">
   <div class="d-flex space-between">
     <img
       [src]="avatar"
@@ -6,7 +6,7 @@
       height="30"
       alt="avatar"
     />
-    <textarea class="text-area-style" placeholder="Add a comment..."></textarea>
-    <button class="btn-blue">{{CommentMapping[type]}}</button>
+    <textarea [(ngModel)]="text"  class="text-area-style" placeholder="Add a comment..."></textarea>
+    <button (click)="action()" class="btn-blue">{{CommentMapping[type]}}</button>
   </div>
 </div>

@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "id": "1",
+      "username": "amyrobson",
+      "avatar": "../../../assets/images/avatars/image-amyrobson.png",
+      "date": "2023-01-22T20:30:00.000Z",
+      "message": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
+      "rate": 12,
+      "responses": [],
+      "isUser": false
+    },
+    {
+      "id": "2",
+      "username": "maxblagun",
+      "avatar": "../../../assets/images/avatars/image-maxblagun.png",
+      "date": "2023-01-22T20:30:00.000Z",
+      "message": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
+      "rate": 5,
+      "responses": [
+        {
+          "id": "3",
+          "username": "ramsesmiron",
+          "avatar": "../../../assets/images/avatars/image-ramsesmiron.png",
+          "date": "2023-01-22T20:30:00.000Z",
+          "message": "@maxblagun If you're still new. I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+          "rate": 4,
+          "responses": [],
+          "isUser": false
+        },
+        {
+          "id": "3",
+          "username": "juliusomo",
+          "avatar": "../../../assets/images/avatars/image-juliusomo.png",
+          "date": "2023-01-22T20:30:00.000Z",
+          "message": "@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
+          "rate": 2,
+          "responses": [],
+          "isUser": true
+        }
+      ],
+      "isUser": false
+    }
+  ],
+  "userInfo": {
+    "id": "3",
+    "username": "juliusomo",
+    "avatar": "../../../assets/images/avatars/image-juliusomo.png"
+  }
+}
