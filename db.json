@@ -40,6 +40,16 @@
         }
       ],
       "isUser": false
+    },
+    {
+      "id": "b7cad52d-c736-4ee4-99bd-fe81e05f3ce4",
+      "username": "juliusomo",
+      "avatar": "../../../assets/images/avatars/image-juliusomo.png",
+      "date": "2024-04-01T14:24:06.926Z",
+      "message": "asdas",
+      "rate": 0,
+      "responses": [],
+      "isUser": true
     }
   ],
   "userInfo": {

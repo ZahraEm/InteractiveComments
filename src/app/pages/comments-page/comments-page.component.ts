@@ -51,6 +51,21 @@ export class CommentsPageComponent implements OnInit {
   }
 
   sendComment(comment: Comment) {
+    console.log('sendComment', comment);
     this.commentFacadeService.addNewComment(comment);
+  }
+
+  findAndRemoveById(arr: any[], id: string) {
+    for (let i = 0; i < arr.length; i++) {
+      if (arr[i].id === id) {
+        arr.splice(i, 1);
+        return true; // Found and removed
+      }
+      if (arr[i].responses && arr[i].responses.length > 0) {
+        const found = this.findAndRemoveById(arr[i].responses, id);
+        if (found) return true; // Propagate the found status upward
+      }
+    }
+    return false; // Not found
   }
 }

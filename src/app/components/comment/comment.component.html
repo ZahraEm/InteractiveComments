@@ -28,7 +28,7 @@
               <i class="edit-btn"></i>
               <span>Edit</span>
             </button>
-            <button class="btn color-light-pink">
+            <button (click)="onDelete(comment)" class="btn color-light-pink">
               <i class="delete-btn"></i>
               <span>Delete</span>
             </button>
@@ -47,3 +47,6 @@
     </div>
   </div>
 </div>
+@if (showDialog){
+  <app-delete-warning></app-delete-warning>
+}

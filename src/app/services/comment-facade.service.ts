@@ -33,7 +33,10 @@ export class CommentFacadeService {
   }
 
   addNewComment(newComment: Comment) {
-    const commentList = this.commentStateService.addNewComment(newComment);
-    this.commentApiService.addComment(commentList).subscribe();
+    this.commentApiService.addComment(newComment).subscribe((result) => {
+      if (result) {
+        this.commentStateService.addNewComment(newComment);
+      }
+    });
   }
 }

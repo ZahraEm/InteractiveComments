@@ -32,6 +32,5 @@ export class CommentStateService {
     const currentComments = this.comments$.getValue();
     const updatedComments = [...currentComments, newComment];
     this.setComments(updatedComments);
-    return updatedComments;
   }
 }
