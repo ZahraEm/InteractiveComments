@@ -33,14 +33,14 @@ export class CustomInputNumberComponent {
   }
 
   decrement() {
-    if (this.value - this.step >= this.min) {
+    if (this.value - this.step >= this.min) { // Check if the next decrement would go below min
       this.value -= this.step;
       this.valueSubject.next(this.value);
     }
   }
 
   onChange() {
-    if (this.value < this.min) {
+    if (this.value < this.min) { // Ensure value is not below min after manual input
       this.value = this.min;
     }
     this.emitValueChange();

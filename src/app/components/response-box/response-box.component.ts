@@ -1,10 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgClass } from '@angular/common';
-import {
-  CommentMapping,
-  actionType,
-  UpdateComment,
-} from '../../models/comments.models';
+import { CommentMapping, actionType } from '../../models/comments.models';
 import { FormsModule } from '@angular/forms';
 
 @Component({
