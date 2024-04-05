@@ -10,6 +10,9 @@
   &__counter{
     margin-right: 20px;
   }
+  &__description{
+    width: calc(100% - 50px);
+  }
   &__title{
     margin-bottom: 20px;
     &__name{

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Comment, UserInfo } from '../models/comments.models';
+import { Comment, CommentDTO, UserInfo } from '../models/comments.models';
 import { environment } from '../../environments/environment.development';
 
 @Injectable({
@@ -10,15 +10,26 @@ import { environment } from '../../environments/environment.development';
 export class CommentApiService {
   private url = `${environment.baseUrl}`;
   constructor(private http: HttpClient) {}
-  getAllComments(): Observable<Comment[]> {
-    return this.http.get<Comment[]>(`${this.url}/comments`);
+  getAllComments(): Observable<CommentDTO[]> {
+    return this.http.get<CommentDTO[]>(`${this.url}/comments`);
   }
 
   getUserInfo(): Observable<UserInfo> {
     return this.http.get<UserInfo>(`${this.url}/userInfo`);
   }
 
-  addComment(comment: Comment): Observable<Comment[]> {
-    return this.http.post<Comment[]>(`${this.url}/comments`, comment);
+  addComment(comment: CommentDTO | Comment): Observable<CommentDTO[]> {
+    return this.http.post<CommentDTO[]>(`${this.url}/comments`, comment);
+  }
+
+  deleteComment(id: string): Observable<CommentDTO> {
+    return this.http.delete<CommentDTO>(`${this.url}/comments/${id}`);
+  }
+
+  updateComment(comment: CommentDTO): Observable<CommentDTO> {
+    return this.http.put<CommentDTO>(
+      `${this.url}/comments/${comment.id}`,
+      comment,
+    );
   }
 }

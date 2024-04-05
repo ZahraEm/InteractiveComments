@@ -98,6 +98,10 @@ button{
   font-family: "Rubik", sans-serif !important;
   font-weight: var(--bold);
   cursor: pointer;
+  &:disabled{
+    cursor: default;
+    opacity: .5;
+  }
 }
 textarea{
   padding: 10px;
@@ -113,11 +117,28 @@ textarea{
 .color-light-pink{
   color: var(--Froly);
 }
+
 .btn-blue{
   border-radius: 5px;
   width: 90px;
   line-height: 40px;
   background-color: var(--Rich-Blue);
+  color: var(--White);
+  border: none;
+  height: 40px;
+}
+.btn-light-pink{
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: var(--Froly);
+  color: var(--White);
+  border: none;
+  height: 40px;
+}
+.btn-raven{
+  border-radius: 5px;
+  line-height: 40px;
+  background-color: var(--Raven);
   color: var(--White);
   border: none;
   height: 40px;

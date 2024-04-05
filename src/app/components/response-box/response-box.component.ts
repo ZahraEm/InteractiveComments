@@ -1,93 +1,34 @@
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { NgClass } from '@angular/common';
 import {
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output,
-} from '@angular/core';
-import { v4 as uuidv4 } from 'uuid';
-import { NgOptimizedImage } from '@angular/common';
-import {
-  Comment,
   CommentMapping,
-  responseBoxType,
-  UserInfo,
+  actionType,
+  UpdateComment,
 } from '../../models/comments.models';
-import { CommentFacadeService } from '../../services/comment-facade.service';
 import { FormsModule } from '@angular/forms';
-import { map, Observable, Subject, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-response-box',
   standalone: true,
-  imports: [NgOptimizedImage, FormsModule],
+  imports: [FormsModule, NgClass],
   templateUrl: './response-box.component.html',
   styleUrl: './response-box.component.scss',
 })
-export class ResponseBoxComponent implements OnInit, OnDestroy {
-  private ngUnsubscribe$ = new Subject();
-  initialUserInfo: UserInfo = {
-    id: '',
-    username: '',
-    avatar: '',
-  };
-  @Input() comment: Comment = {} as Comment;
-  @Input() type: responseBoxType = responseBoxType.SEND;
+export class ResponseBoxComponent implements OnInit {
+  @Input() type: actionType = actionType.SEND;
   @Input() avatar: string = '';
-  @Output() sendComment = new EventEmitter<Comment>();
+  @Input() commentText?: string = '';
+  @Output() updateCommentHandler = new EventEmitter<string>();
   text: string = '';
-  userInfo: UserInfo = this.initialUserInfo;
-  public CommentMapping = CommentMapping;
-  constructor(private commentFacadeService: CommentFacadeService) {}
+  RESPONSE_BOX_TYPE = actionType;
+  CommentMapping = CommentMapping;
 
   ngOnInit(): void {
-    this.commentFacadeService.getUserInfo$().subscribe((userInfo) => {
-      this.userInfo = userInfo;
-    });
-  }
-  ngOnDestroy() {
-    // @ts-ignore
-    this.ngUnsubscribe$.next();
-    this.ngUnsubscribe$.complete();
-  }
-  action() {
-    this.sendCommentAction();
-    // switch (this.type) {
-    //   case responseBoxType.SEND:
-    //     this.sendCommentAction();
-    //     break;
-    // }
-  }
-  generateUniqueID(): Observable<Comment> {
-    return this.commentFacadeService
-      .getComments$()
-      .pipe(map((comments) => this.generateUniqueComment(comments)));
+    this.text = this.commentText ? this.commentText : '';
   }
 
-  private generateUniqueComment(comments: Comment[]): Comment {
-    let id: string;
-    do {
-      id = uuidv4();
-    } while (comments.some((comment) => comment.id === id));
-
-    return {
-      id: id,
-      username: this.userInfo.username,
-      avatar: this.userInfo.avatar,
-      date: new Date(),
-      message: this.text,
-      rate: 0,
-      responses: [],
-      isUser: true,
-    };
-  }
-  sendCommentAction() {
-    this.generateUniqueID()
-      .pipe(takeUntil(this.ngUnsubscribe$))
-      .subscribe((newComment) => {
-        this.sendComment.emit(newComment);
-        this.text = '';
-      });
+  onSubmit() {
+    this.updateCommentHandler.emit(this.text);
+    this.text = '';
   }
 }

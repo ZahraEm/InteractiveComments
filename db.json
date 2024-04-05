@@ -6,8 +6,10 @@
       "avatar": "../../../assets/images/avatars/image-amyrobson.png",
       "date": "2023-01-22T20:30:00.000Z",
       "message": "Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well.",
-      "rate": 12,
-      "responses": [],
+      "rate": 15,
+      "responses": [
+        "32a40831-d8f1-4bd9-a2e0-a4d2b3e06d08"
+      ],
       "isUser": false
     },
     {
@@ -16,38 +18,41 @@
       "avatar": "../../../assets/images/avatars/image-maxblagun.png",
       "date": "2023-01-22T20:30:00.000Z",
       "message": "Woah, your project looks awesome! How long have you been coding for? I'm still new, but think I want to dive into React as well soon. Perhaps you can give me an insight on where I can learn React? Thanks!",
-      "rate": 5,
+      "rate": 6,
       "responses": [
-        {
-          "id": "3",
-          "username": "ramsesmiron",
-          "avatar": "../../../assets/images/avatars/image-ramsesmiron.png",
-          "date": "2023-01-22T20:30:00.000Z",
-          "message": "@maxblagun If you're still new. I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
-          "rate": 4,
-          "responses": [],
-          "isUser": false
-        },
-        {
-          "id": "3",
-          "username": "juliusomo",
-          "avatar": "../../../assets/images/avatars/image-juliusomo.png",
-          "date": "2023-01-22T20:30:00.000Z",
-          "message": "@ramsesmiron I couldn't agree more with this. Everything moves so fast and it always seems like everyone knows the newest library/framework. But the fundamentals are what stay constant.",
-          "rate": 2,
-          "responses": [],
-          "isUser": true
-        }
+        3,
+        4
       ],
       "isUser": false
     },
     {
-      "id": "b7cad52d-c736-4ee4-99bd-fe81e05f3ce4",
+      "id": "3",
+      "parentId": "2",
+      "username": "ramsesmiron",
+      "avatar": "../../../assets/images/avatars/image-ramsesmiron.png",
+      "date": "2023-01-22T20:30:00.000Z",
+      "message": "@maxblagun If you're still new. I'd recommend focusing on the fundamentals of HTML, CSS, and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.",
+      "rate": 6,
+      "responses": [],
+      "isUser": false
+    },
+    {
+      "id": "1438cde2-77d3-4292-84ef-1b7089a80a11",
       "username": "juliusomo",
       "avatar": "../../../assets/images/avatars/image-juliusomo.png",
-      "date": "2024-04-01T14:24:06.926Z",
-      "message": "asdas",
-      "rate": 0,
+      "date": "2024-04-05T23:02:04.404Z",
+      "message": "sadcsacsscsc",
+      "rate": 1,
+      "responses": [],
+      "isUser": true
+    },
+    {
+      "id": "32a40831-d8f1-4bd9-a2e0-a4d2b3e06d08",
+      "username": "juliusomo",
+      "avatar": "../../../assets/images/avatars/image-juliusomo.png",
+      "date": "2024-04-05T23:07:19.222Z",
+      "message": "",
+      "rate": 2,
       "responses": [],
       "isUser": true
     }
