@@ -40,7 +40,7 @@ export class CustomInputNumberComponent {
   }
 
   onChange() {
-    if (this.value < this.min) { // Ensure value is not below min after manual input
+    if (this.value < this.min) {
       this.value = this.min;
     }
     this.emitValueChange();
