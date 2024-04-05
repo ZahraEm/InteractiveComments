@@ -8,7 +8,6 @@ import {
 import { FormsModule } from '@angular/forms';
 import { debounceTime, Subject } from 'rxjs';
 
-
 @Component({
   selector: 'app-custom-input-number',
   standalone: true,
