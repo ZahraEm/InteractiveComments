@@ -7,7 +7,7 @@
         (valueChange)="onValueChange($event)"
       ></app-custom-input-number>
     </div>
-    <div>
+    <div class="comment__description">
       <div class="d-flex comment__title space-between">
         <div class="d-flex align-item-center">
           <img
@@ -24,26 +24,36 @@
         </div>
         <div>
           @if(comment.isUser){
-            <button class="btn color-rich-blue">
+            <button (click)="isEdit = true" class="btn color-rich-blue">
               <i class="edit-btn"></i>
               <span>Edit</span>
             </button>
-            <button class="btn color-light-pink">
+            <button (click)="triggerDeleteCommentDialog()" class="btn color-light-pink">
               <i class="delete-btn"></i>
               <span>Delete</span>
             </button>
           }
           @else{
-            <button class="btn color-rich-blue">
+            <button (click)="isReply = true" class="btn color-rich-blue">
               <i class="reply-btn"></i>
               <span>Reply</span>
             </button>
           }
         </div>
       </div>
-      <div class="comment__text">
+      <div [hidden]="isEdit" class="comment__text">
         {{comment.message}}
       </div>
+      @if(isEdit){
+        <app-response-box (updateCommentHandler)="handleCommentUpdate($event,RESPONSE_BOX_TYPE.EDIT,comment.id)" [avatar]="userInfo.avatar" [commentText]="comment.message" [type]="RESPONSE_BOX_TYPE.EDIT"></app-response-box>
+      }
     </div>
   </div>
 </div>
+
+@if(isReply){
+  <app-response-box (updateCommentHandler)="handleCommentUpdate($event,RESPONSE_BOX_TYPE.REPLY)" [avatar]="userInfo.avatar" [type]="RESPONSE_BOX_TYPE.REPLY"></app-response-box>
+}
+@if (showDialog){
+  <app-delete-warning (dialogResponse)="handleDeleteCommentDialogResponse($event)"></app-delete-warning>
+}

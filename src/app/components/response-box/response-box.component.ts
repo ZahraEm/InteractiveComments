@@ -1,56 +1,30 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgOptimizedImage } from '@angular/common';
-import {
-  Comment,
-  CommentMapping,
-  responseBoxType,
-  UserInfo,
-} from '../../models/comments.models';
-import { CommentFacadeService } from '../../services/comment-facade.service';
+import { NgClass } from '@angular/common';
+import { CommentMapping, actionType } from '../../models/comments.models';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-response-box',
   standalone: true,
-  imports: [NgOptimizedImage, FormsModule],
+  imports: [FormsModule, NgClass],
   templateUrl: './response-box.component.html',
   styleUrl: './response-box.component.scss',
 })
 export class ResponseBoxComponent implements OnInit {
-  initialUserInfo: UserInfo = {
-    id: '',
-    username: '',
-    avatar: '',
-  };
-  @Input() comment: Comment = {} as Comment;
-  @Input() type: responseBoxType = responseBoxType.SEND;
+  @Input() type: actionType = actionType.SEND;
   @Input() avatar: string = '';
-  @Output() sendComment = new EventEmitter<Comment>();
+  @Input() commentText?: string = '';
+  @Output() updateCommentHandler = new EventEmitter<string>();
   text: string = '';
-  userInfo: UserInfo = this.initialUserInfo;
-  public CommentMapping = CommentMapping;
-  constructor(private commentFacadeService: CommentFacadeService) {}
+  RESPONSE_BOX_TYPE = actionType;
+  CommentMapping = CommentMapping;
 
   ngOnInit(): void {
-    this.commentFacadeService.getUserInfo$().subscribe((userInfo) => {
-      this.userInfo = userInfo;
-    });
+    this.text = this.commentText ? this.commentText : '';
   }
-  action() {
-    switch (this.type) {
-      case responseBoxType.SEND:
-        const newComment: Comment = {
-          id: Math.floor(Math.random()).toString(),
-          username: this.userInfo.username,
-          avatar: this.userInfo.avatar,
-          date: new Date(),
-          message: this.text,
-          rate: 0,
-          responses: [],
-          isUser: true,
-        };
-        this.sendComment.emit(newComment);
-        this.text = '';
-    }
+
+  onSubmit() {
+    this.updateCommentHandler.emit(this.text);
+    this.text = '';
   }
 }

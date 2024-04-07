@@ -6,6 +6,7 @@ import {
   Output,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { debounceTime, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-custom-input-number',
@@ -18,18 +19,23 @@ import { FormsModule } from '@angular/forms';
 export class CustomInputNumberComponent {
   @Input() value: number = 0;
   @Input() step: number = 1;
-  @Input() min: number = 0; // Minimum value
+  @Input() min: number = 0;
   @Output() valueChange = new EventEmitter<number>();
-
+  private valueSubject = new Subject<number>();
+  constructor() {
+    this.valueSubject.pipe(debounceTime(300)).subscribe(() => {
+      this.emitValueChange();
+    });
+  }
   increment() {
     this.value += this.step;
-    this.emitValueChange();
+    this.valueSubject.next(this.value);
   }
 
   decrement() {
     if (this.value - this.step >= this.min) {
       this.value -= this.step;
-      this.emitValueChange();
+      this.valueSubject.next(this.value);
     }
   }
 

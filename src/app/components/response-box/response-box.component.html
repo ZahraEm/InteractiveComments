@@ -1,12 +1,16 @@
-<div class="response-box">
-  <div class="d-flex space-between">
-    <img
-      [src]="avatar"
-      width="30"
-      height="30"
-      alt="avatar"
-    />
-    <textarea [(ngModel)]="text"  class="text-area-style" placeholder="Add a comment..."></textarea>
-    <button (click)="action()" class="btn-blue">{{CommentMapping[type]}}</button>
+<div class="response-box" [ngClass]="{'response-box--update':type ===RESPONSE_BOX_TYPE.EDIT}">
+  <div class="white-box">
+    <div class="d-flex space-between">
+      <img
+        [src]="avatar"
+        width="30"
+        height="30"
+        alt="avatar"
+      />
+      <textarea [(ngModel)]="text"  class="text-area-style" placeholder="Add a comment..."></textarea>
+      <div class="response-box__action">
+        <button (click)="onSubmit()" class="btn-blue" [disabled]="!text">{{CommentMapping[type]}}</button>
+      </div>
+    </div>
   </div>
 </div>
